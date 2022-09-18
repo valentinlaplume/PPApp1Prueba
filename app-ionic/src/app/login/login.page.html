@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title align="center">Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<br>
+
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Mail</ion-label>
+      <ion-input type="email" 
+      [(ngModel)]="this.email" 
+      [ngModelOptions]="{standalone: true}" 
+      required placeholder="ejemplo@ejemplo.com"></ion-input>
+    </ion-item>
+    <ion-label class="center-span" color="danger" mode="md">{{validaEmail}}</ion-label>
+
+    <ion-item lines="full">
+      <ion-label position="floating" >Contraseña</ion-label>
+      <ion-input type="password" 
+      [(ngModel)]="this.password" 
+      [ngModelOptions]="{standalone: true}"
+      required placeholder=""></ion-input>
+    </ion-item>
+    <ion-label class="center-span" color="danger" mode="md">{{validaPass}}</ion-label>
+
+    <label class="lbl-error" color="danger" mode="md">{{validaLogin}}</label>
+
+    <br>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin()" expand="block">Iniciar Sesión</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align="center">
+        <ion-button class="btn-autologin" (click)="onLoginUsuarioAdministrador()" >Usuario Admin</ion-button>
+        <ion-button class="btn-autologin" (click)="onLoginUsuarioModerador()" >Usuario Mod</ion-button>
+        <ion-button class="btn-autologin" (click)="onLoginUsuarioComun()" >Usuario Común</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col align="center">
+        <!-- <span class="center-span"></span> -->
+        <a class="ion-margin"  routerLink="../forgot-password">¿Has olvidado tu contraseña?</a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>  
+        <span class="center-span">o</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>  
+        <ion-button (click)="onLoginGoogle()" color="danger" expand="block" >Iniciar Sesión con Google</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col align="center">
+        <span >¿No tienes ninguna cuenta?</span>
+        <a class="ion-margin"  routerLink="../register">Regístrate</a>
+      </ion-col>
+    </ion-row>
+
+
+  </form>
+</ion-content>
+
+
+
